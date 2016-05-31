@@ -1,4 +1,4 @@
-# Toposort
+# Precedence maps
 
 Graphing and ordered maps for scheduling execution of tasks, fast.
 
