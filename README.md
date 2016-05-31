@@ -26,7 +26,7 @@ var graphDefinitions = {
 precedence.setGraph("mygraph", {
   map: graphDefinitions
 });
-precedence.setGraph("mygraph"); // [ 'god', 'man', 'animal' ]
+precedence.getOrder("mygraph"); // [ 'god', 'man', 'animal' ]
 ```
 
 The order will be auto calculated whenever graphDefinitions is modified. Sorting will take place only when needed, so you can make several changes in the graph and calculation will only take place when getOrder() is called
@@ -65,7 +65,7 @@ Returns: {Array} a list of names, sorted in the order of precedence
 ### precedence.newStore(name, template)
 
 + name {String} name of the graph we want to order the map with.
-+ template {Function} Optional, a constructor to create instances of when key is looked up for the first time.
++ template {Function} Optional, a constructor to create instances of when a new key is accessed.
 
 ## Tests
 
