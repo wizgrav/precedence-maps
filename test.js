@@ -33,8 +33,8 @@ suite.addBatch(
       });
       return precedence.getOrder("test");
     }
-  , 'should throw an exception': function(_, val) {
-      assert.instanceOf(val, Error)
+  , 'should throw an exception': function(err, val) {
+      assert.instanceOf(err, Error)
     }
   }
 
