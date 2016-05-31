@@ -1,0 +1,30 @@
+{
+  "name": "precedence-maps",
+  "version": "0.1.0",
+  "description": "Utilities to define graphs for your apps and schedule the execution of operations, fast.",
+  "main": "./index.js",
+  "scripts": {
+    "dist": "browserify ./src/index.js  -s precedence-maps -o dist/precedence-maps.js && uglifyjs dist/precedence-maps.js > dist/precedence-maps.min.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizgrav/precedence-maps.git"
+  },
+  "keywords": ["precedence", "graph", "task", "scheduling", "execution", "topological", "sorting", "dependency"],
+  "author": "Yannis Gravezas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wizgrav/precedence-maps/issues"
+  },
+  "homepage": "https://github.com/wizgrav/precedence-maps#readme",
+  "dependencies": {
+    "toposort": "^1.0.0"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "uglify-js": "^2.6.1",
+    "vows": "^0.8.1",
+    "assert": "^1.3.0"
+  }
+}
