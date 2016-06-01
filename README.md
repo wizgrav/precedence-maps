@@ -29,7 +29,7 @@ precedence.setGraph("mygraph", {
 precedence.getOrder("mygraph"); // [ 'god', 'man', 'animal' ]
 ```
 
-The order will be auto calculated whenever graphDefinitions is modified. Sorting will take place only when needed, so you can make several changes in the graph and calculation will only take place when getOrder() is called
+The order will be flagged for refresh whenever setGraph is called for the specific graph. You can make several changes in the graph definitions, setGraph with/or without options(setting options refresh the configuration), and calculation will only take place when getOrder() is called or internally in the stores as needed.
 
 ```js
 var store = precedence.newStore("mygraph", Array) // Create a store where keys match properties in graphDefinitions
@@ -48,6 +48,17 @@ store().forEach(function (v) { console.log(v); });
 [ 'rat', 'pig' ]
 */
 ```
+
+Parsing the graph definitions can also be customized by providing/overriding two methods. Enumerate(graph) which must return an unordered array of graph symbols and collect(graph, symbolName) which will run per symbol and must return either an object like
+
+```js
+{ 
+  incoming: ["symbolNameBefore1","symbolNameBefore2",...],
+  outgoing: ["symbolNameAfter1",...]
+}
+```
+
+or a false value to omit this symbol from sorting.
 ## API
 
 ### precedence.setGraph(name, options)
